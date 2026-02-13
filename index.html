@@ -1,88 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine 💖</title>
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#ff6a88,#ff99ac);
+    flex-direction:column;
+    font-family:Arial, sans-serif;
     overflow:hidden;
+    color:white;
+    animation:fadePage 1.5s ease-in-out;
+    background:linear-gradient(-45deg,#ff4e8a,#ff9ecf,#ff6fa5,#ffc3e6);
+    background-size:400% 400%;
+    animation:gradientMove 8s ease infinite;
 }
 
-.card{
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
-    padding:40px;
-    border-radius:25px;
-    text-align:center;
-    width:90%;
-    max-width:400px;
-    box-shadow:0 0 30px rgba(255,255,255,0.5);
-    animation: fadeIn 2s ease-in-out;
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes fadePage{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 h1{
-    font-size:35px;
-    color:white;
-    margin-bottom:20px;
+    font-size:55px;
+    text-shadow:0 0 20px white;
 }
 
 p{
-    color:white;
-    font-size:18px;
-    margin-bottom:30px;
+    margin:20px 0;
+    font-size:20px;
 }
 
 button{
-    padding:12px 25px;
+    padding:15px 30px;
+    font-size:18px;
     border:none;
     border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
     background:white;
-    color:#ff4d6d;
+    color:#ff4e8a;
+    cursor:pointer;
     transition:0.3s;
+    box-shadow:0 0 20px rgba(255,255,255,0.6);
 }
 
 button:hover{
     transform:scale(1.1);
-    background:#ff4d6d;
-    color:white;
+    box-shadow:0 0 30px white;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
+/* Hati */
+.heart{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
-    <h1>Happy Valentine ❤️</h1>
-    <p>
-        Hari ini bukan cuma tentang cinta...  
-        Tapi tentang seseorang yang selalu ada di pikiranku.  
-        Dan orang itu adalah kamu.
-    </p>
-    <button onclick="lanjut()">Lanjut 💌</button>
-</div>
+<h1>Happy Valentine 💖</h1>
+<p>Website spesial hanya untuk kamu 🌹</p>
+<button onclick="goPage()">Klik Aku 💌</button>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-function lanjut(){
-    window.location.href="halaman2.html";
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3+2) + "s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,300);
+
+function goPage(){
+    document.body.style.opacity="0";
+    setTimeout(()=>{location.href="love.html"},800);
 }
 </script>
 
