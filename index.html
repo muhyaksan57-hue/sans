@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Halaman Utama</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-        nav {
-            background-color: #2c3e50;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 15px;
-            padding: 8px 12px;
-            background-color: #34495e;
-            border-radius: 5px;
-        }
-        nav a:hover {
-            background-color: #1abc9c;
-        }
-        .content {
-            padding: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Happy Valentine ❤️</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff6a88,#ff99ac);
+    overflow:hidden;
+}
+
+.card{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    width:90%;
+    max-width:400px;
+    box-shadow:0 0 30px rgba(255,255,255,0.5);
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1{
+    font-size:35px;
+    color:white;
+    margin-bottom:20px;
+}
+
+p{
+    color:white;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ff4d6d;
+    color:white;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="halaman2.html">Halaman 2</a>
-</nav>
-
-<div class="content">
-    <h1>Selamat Datang di Halaman Utama</h1>
-    <p>Ini adalah halaman pertama website.</p>
+<div class="card">
+    <h1>Happy Valentine ❤️</h1>
+    <p>
+        Hari ini bukan cuma tentang cinta...  
+        Tapi tentang seseorang yang selalu ada di pikiranku.  
+        Dan orang itu adalah kamu.
+    </p>
+    <button onclick="lanjut()">Lanjut 💌</button>
 </div>
+
+<script>
+function lanjut(){
+    window.location.href="halaman2.html";
+}
+</script>
 
 </body>
 </html>
