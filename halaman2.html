@@ -1,95 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu 💕</title>
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    font-family:Arial, sans-serif;
     overflow:hidden;
+    color:white;
+    animation:fadePage 1.5s ease-in-out;
+    background:linear-gradient(-45deg,#ff6fa5,#ffc3e6,#ff4e8a,#ff9ecf);
+    background-size:400% 400%;
+    animation:gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes fadePage{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 .card{
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
+    background:rgba(255,255,255,0.2);
     padding:40px;
     border-radius:25px;
+    backdrop-filter:blur(15px);
+    max-width:500px;
     text-align:center;
-    width:90%;
-    max-width:450px;
-    box-shadow:0 0 30px rgba(255,255,255,0.6);
-    color:white;
-    animation: fadeIn 2s ease-in-out;
+    box-shadow:0 0 30px rgba(255,255,255,0.5);
 }
 
 h1{
-    font-size:28px;
-    margin-bottom:20px;
+    font-size:40px;
+    text-shadow:0 0 15px white;
 }
 
 p{
-    font-size:18px;
-    margin-bottom:25px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+    font-size:20px;
+    margin-top:20px;
+    line-height:1.6;
 }
 
 button{
-    padding:12px 20px;
+    margin-top:25px;
+    padding:12px 30px;
     border:none;
-    border-radius:30px;
-    font-size:16px;
+    border-radius:25px;
+    background:white;
+    color:#ff4e8a;
     cursor:pointer;
     transition:0.3s;
-}
-
-.yes{
-    background:white;
-    color:#ff4d6d;
-}
-
-.no{
-    background:#ff4d6d;
-    color:white;
+    box-shadow:0 0 20px rgba(255,255,255,0.6);
 }
 
 button:hover{
     transform:scale(1.1);
+    box-shadow:0 0 30px white;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* Hati jatuh */
+/* Hati */
 .heart{
     position:absolute;
-    top:-10px;
+    color:white;
     font-size:20px;
-    animation: fall linear infinite;
+    animation:fall linear infinite;
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(100vh);
-    }
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
 }
 </style>
 </head>
@@ -97,42 +89,35 @@ button:hover{
 <body>
 
 <div class="card">
-    <h1>Apakah kamu ingin selalu bersama ku? 💘</h1>
+    <h1>Untuk Kamu 💘</h1>
     <p>
-        Kamu adalah alasan aku tersenyum setiap hari.  
-        Dunia terasa lebih indah sejak kamu hadir.  
-        Jadi... mau kah kamu hidup bersama ku?
+        Terima kasih sudah hadir dalam hidupku 💕<br>
+        Kamu adalah alasan senyumku setiap hari 🌷<br>
+        Semoga cinta ini selalu tumbuh dan indah selamanya 💞
     </p>
-
-    <div class="buttons">
-        <button class="yes" onclick="jawabYes()">Mau 💖</button>
-        <button class="no" onmouseover="pindah(this)">Gamau 😜</button>
-    </div>
+    <button onclick="goBack()">Kembali 💖</button>
 </div>
 
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function jawabYes(){
-    alert("Yeeey! Sekarang kamu resmi jadi Valentine aku ❤️");
-}
-
-function pindah(btn){
-    btn.style.position="absolute";
-    btn.style.left=Math.random()*window.innerWidth+"px";
-    btn.style.top=Math.random()*window.innerHeight+"px";
-}
-
 function createHeart(){
     const heart=document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
     heart.style.animationDuration=(Math.random()*3+2)+"s";
     document.body.appendChild(heart);
-
-    setTimeout(()=>{heart.remove();},5000);
+    setTimeout(()=>heart.remove(),5000);
 }
-
 setInterval(createHeart,300);
+
+function goBack(){
+    document.body.style.opacity="0";
+    setTimeout(()=>{location.href="index.html"},800);
+}
 </script>
 
 </body>
